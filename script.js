@@ -1,37 +1,31 @@
-const menuButton = document.querySelector(".menu-button");
-const navLinks = document.querySelector(".nav-links");
+const menuToggle = document.querySelector("#menuToggle");
+const navLinks = document.querySelector("#navLinks");
 
-menuButton.addEventListener("click", () => {
-  const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-
-  menuButton.setAttribute("aria-expanded", String(!isOpen));
-  menuButton.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
-  navLinks.classList.toggle("open", !isOpen);
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.textContent = isOpen ? "✕" : "☰";
 });
 
-navLinks.addEventListener("click", (event) => {
-  if (event.target.closest("a")) {
+navLinks.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
     navLinks.classList.remove("open");
-    menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "Open menu");
-  }
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
 });
 
-document.querySelector("#year").textContent = new Date().getFullYear();
+// Animate skill bars when the skills section enters the screen.
+const skillSection = document.querySelector("#skills");
+const skillObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll(".skill-track span").forEach((bar) => {
+        bar.style.width = bar.dataset.level;
+      });
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.25 });
 
-const skillBars = document.querySelectorAll(".skill-bar");
-
-if ("IntersectionObserver" in window) {
-  const skillObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-
-  skillBars.forEach((bar) => skillObserver.observe(bar));
-} else {
-  skillBars.forEach((bar) => bar.classList.add("visible"));
-}
+skillObserver.observe(skillSection);

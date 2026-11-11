@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf8f3">
+  <meta name="description" content="A personal portfolio.">
+  <title>Your Name | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="logo" href="#home">Your Name<span>.</span></a>
+      <button class="menu-button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <p class="hello">Hello, I'm Your Name 👋</p>
+      <h1>I make things for the web.</h1>
+      <p class="intro">I'm a web developer who enjoys turning ideas into simple, useful websites. Take a look around and get to know my work.</p>
+      <a class="button" href="#projects">See what I've made <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="container section" id="about">
+      <p class="kicker">A bit about me</p>
+      <h2>Nice to meet you.</h2>
+      <p class="section-copy">I'm learning and building with the web, one project at a time. I like clean design, solving little problems, and making websites that are easy for everyone to use. When I'm not coding, I'm usually [add something you enjoy here].</p>
+    </section>
+
+    <section class="container section" id="skills">
+      <p class="kicker">Things I'm learning</p>
+      <h2>My skills</h2>
+      <p class="section-copy">These bars slide into place as you scroll. Change the skills and numbers to match your experience.</p>
+      <div class="skills">
+        <div class="skill">
+          <div class="skill-label"><span>HTML & CSS</span><span>90%</span></div>
+          <div class="skill-track" role="progressbar" aria-label="HTML and CSS" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90"><div class="skill-bar" style="--level: 90%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-label"><span>JavaScript</span><span>75%</span></div>
+          <div class="skill-track" role="progressbar" aria-label="JavaScript" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75"><div class="skill-bar" style="--level: 75%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-label"><span>Responsive design</span><span>80%</span></div>
+          <div class="skill-track" role="progressbar" aria-label="Responsive design" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><div class="skill-bar" style="--level: 80%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="container">
+        <p class="kicker">A few things I've made</p>
+        <h2>My projects</h2>
+        <div class="project-list">
+          <article class="project">
+            <span class="project-number">01</span>
+            <div>
+              <h3>Project One</h3>
+              <p>A short description of what you built and what you learned.</p>
+            </div>
+          </article>
+          <article class="project">
+            <span class="project-number">02</span>
+            <div>
+              <h3>Project Two</h3>
+              <p>Share another project you're proud of and the tools you used.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section contact" id="contact">
+      <p class="kicker">Say hello</p>
+      <h2>Have an idea? Let's talk.</h2>
+      <p class="section-copy">I'm always happy to hear about interesting projects or just have a friendly chat.</p>
+      <a class="button" href="mailto:your.email@example.com">your.email@example.com <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <span>© <span id="year"></span> Your Name</span>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
